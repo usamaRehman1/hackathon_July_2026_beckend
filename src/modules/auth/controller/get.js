@@ -4,12 +4,12 @@ import { ENV, GET_DATA_SUCESSFULLY } from "../../../constant/index.js";
 const getController = async (req, res) => {
     try {
         const id = req.query.id
-        const files = await getAllUsers(id ? { _id: id } : {});
+        const user = await getAllUsers(id ? { _id: id } : {});
         return res.status(200).json({
             status: true,
-            count: files.length,
+            count: user.length,
             message: GET_DATA_SUCESSFULLY,
-            data: files
+            data: user
         });
     } catch (error) {
         return res.status(500).json({
