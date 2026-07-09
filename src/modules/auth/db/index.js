@@ -1,4 +1,4 @@
-import bcrypt from "bcryptjs";
+import bcrypt from "bcrypt";
 import { UserModel } from "../model/index.js";
 import { ENV } from "../../../constant/index.js";
 import { generateTokenJWT } from "../../../helperFunc/generateTokenJWT.js";
@@ -15,7 +15,7 @@ const getData = async (data) => {
             throw new Error('Invalid Credentials');
         }
         const token = generateTokenJWT(user._id)
-        
+
         return {
             token,
             user
