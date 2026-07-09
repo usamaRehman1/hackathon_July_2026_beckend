@@ -3,7 +3,7 @@ import cors from "cors";
 import { config } from "dotenv";
 import { connectDB } from "./src/helperFunc/connectDB.js";
 import { ENV } from "./src/constant/index.js"
-import { routers } from "./src/router/index.js"
+import routers from "./src/router/index.js"
 config()
 connectDB();
 
