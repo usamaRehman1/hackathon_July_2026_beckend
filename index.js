@@ -1,11 +1,16 @@
 import express from "express";
+import cors from "cors";
+import { config } from "dotenv";
 import { connectDB } from "./src/helperFunc/connectDB.js";
 import { ENV } from "./src/constant/index.js"
-import { config } from "dotenv";
+import { routers } from "./src/router/index.js"
 config()
 connectDB();
 
 const app = express();
+app.use(express.json());
+app.use(cors())
+app.use("/api", routers);
 
 // test route
 app.get("/", (req, res) => {
